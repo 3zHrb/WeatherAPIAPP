@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+struct main: Codable{
+    var temp : Float
+}
+
+struct WeatherModel: Codable{
+    
+//    var main: main
+    var name: String
+    
+}

@@ -7,3 +7,42 @@
 //
 
 import Foundation
+import UIKit
+
+class TableViewCell: UITableViewCell{
+    
+    var cityNameLabel: UILabel!
+    var cityDegreeLabel: UILabel!
+    
+    
+    // self.contentView might be wrong!
+    
+    init(){
+
+        super.init(style: .default, reuseIdentifier: nil)
+//        cityNameLabel = UILabel(frame: CGRect(x: self.contentView.frame.width / 10, y: self.contentView.frame.height / 2, width: self.contentView.frame.width * 0.25, height: self.contentView.frame.height * 0.35))
+        cityNameLabel = UILabel()
+        cityNameLabel.text = "City Name"
+        
+//        cityDegreeLabel = UILabel(frame: CGRect(x: self.contentView.frame.width - 10, y: self.contentView.frame.height / 2, width: self.contentView.frame.width * 0.25 , height: self.contentView.frame.height * 0.35))
+        cityDegreeLabel = UILabel()
+        cityDegreeLabel.text = "Degree"
+        
+        self.contentView.addSubview(cityNameLabel)
+        self.contentView.addSubview(cityDegreeLabel)
+        
+        cityNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        cityNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: self.contentView.frame.height / 2).isActive = true
+        
+        cityNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+                
+        cityDegreeLabel.translatesAutoresizingMaskIntoConstraints = false
+        cityDegreeLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: self.contentView.frame.height / 2).isActive = true
+        cityDegreeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}

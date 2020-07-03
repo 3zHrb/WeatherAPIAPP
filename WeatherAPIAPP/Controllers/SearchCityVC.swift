@@ -91,6 +91,7 @@ class SearchCityVC: UIViewController, UITextFieldDelegate{
                 if let weatherData = weatherData {
                     print("We got the Data")
                     print(weatherData.name)
+                    print(weatherData.main.temp)
                 }
                 
                 

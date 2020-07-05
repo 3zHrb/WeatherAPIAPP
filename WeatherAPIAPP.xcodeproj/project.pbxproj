@@ -18,6 +18,7 @@
 		0455B10424AAB04700429C3E /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455B10324AAB04700429C3E /* WeatherTableViewController.swift */; };
 		0455B10624AAB06500429C3E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455B10524AAB06500429C3E /* SettingsTableViewController.swift */; };
 		0455B10824AAB0DB00429C3E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455B10724AAB0DB00429C3E /* TableViewCell.swift */; };
+		04E7BC6024B1786A00ACB45E /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E7BC5F24B1786A00ACB45E /* JosefinSans-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		0455B10324AAB04700429C3E /* WeatherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
 		0455B10524AAB06500429C3E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		0455B10724AAB0DB00429C3E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		04E7BC5F24B1786A00ACB45E /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				0455B0E824A9279200429C3E /* SceneDelegate.swift */,
 				0455B0EC24A9279200429C3E /* Main.storyboard */,
 				0455B0EF24A9279400429C3E /* Assets.xcassets */,
+				04E7BC5F24B1786A00ACB45E /* JosefinSans-SemiBold.ttf */,
 				0455B0F124A9279400429C3E /* LaunchScreen.storyboard */,
 				0455B0F424A9279400429C3E /* Info.plist */,
 			);
@@ -167,6 +170,7 @@
 				0455B0F324A9279400429C3E /* LaunchScreen.storyboard in Resources */,
 				0455B0F024A9279400429C3E /* Assets.xcassets in Resources */,
 				0455B0EE24A9279200429C3E /* Main.storyboard in Resources */,
+				04E7BC6024B1786A00ACB45E /* JosefinSans-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +333,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 63TK99QP7X;
+				DEVELOPMENT_TEAM = 8CWGZN5W9G;
 				INFOPLIST_FILE = WeatherAPIAPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -347,7 +351,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 63TK99QP7X;
+				DEVELOPMENT_TEAM = 8CWGZN5W9G;
 				INFOPLIST_FILE = WeatherAPIAPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

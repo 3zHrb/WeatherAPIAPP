@@ -27,6 +27,8 @@ class SearchCityVC: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         
         self.view.backgroundColor = .darkGray
+        
+        self.navigationItem.title = "Search for City"
        
 //        var frame = CGRect(x: 20, y: 200, width: self.view.frame.width * 0.8, height: self.view.frame.height * 0.05)
             
@@ -62,6 +64,7 @@ class SearchCityVC: UIViewController, UITextFieldDelegate{
         self.getWeatherButton.centerXAnchor.constraint(equalToSystemSpacingAfter: self.view.centerXAnchor, multiplier: 0).isActive = true
         
          searchTextField.delegate = self
+       
         
     }
     
@@ -80,39 +83,46 @@ class SearchCityVC: UIViewController, UITextFieldDelegate{
         if searchTextField.text == ""{
             self.alertSetUp(reason: "The Field is Empty")
         }else{
- 
+            
+            self.getWeatherButton.isEnabled = false
             Webservice.getData(cityName: self.searchTextField.text!) { (weatherData, error) in
-                         print("We just called Webservive().getData")
+                     
                          if error != nil {
                              self.alertSetUp(reason: "Error Occured")
-                            return nil
                          }
-                
                 if let weatherData = weatherData {
-                    print("We got the Data")
-                    print(weatherData.name)
-                    print(weatherData.main.temp)
-                }
-                
-                
-                DispatchQueue.main.async {
-                    self.searchTextField.text = ""
-                    self.getWeatherButton.isEnabled = false
-                }
+                    
+                    
+                    self.delegate.arrayOfCities.append(weatherData.name)
+                    
+                    let toCelsius = Int(weatherData.main.temp - 273.15)
+                    
+                    self.delegate.arrayOfDegrees.append(toCelsius)
+                        DispatchQueue.main.async {
+                            self.searchTextField.text = ""
+                                        
+                            self.delegate.tableView.reloadData()
+                             self.getWeatherButton.isEnabled = true
+                            self.navigationController?.popViewController(animated: true)
+                                    }
                         
-            // Webservice() will not work
-return nil
-        }
-        
-       
-        }
-        
-        self.getWeatherButton.isEnabled = true
-        self.delegate.tableView.reloadData()
-      self.navigationController?.popViewController(animated: true)
+                }else {
+                    DispatchQueue.main.async {
+                        self.alertSetUp(reason: "Uncorrect City Name")
+                        self.getWeatherButton.isEnabled = true
+                    }
+                                          
+                }
+
+                // why?
+                               return nil
     }
+            }
+                    }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
+    
+        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     

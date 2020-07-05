@@ -13,12 +13,19 @@ class WeatherTableViewController: UITableViewController{
     
     
     var cell: TableViewCell!
-    var DicOfWeather = [String:String]()
+    var arrayOfCities = [String]()
+    var arrayOfDegrees = [Int]()
+    
     
     override func viewDidLoad() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToWeatherSearchVC))
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(goToSettingsTableVC))
+        
+        self.tableView.rowHeight = 100
+        
+        self.navigationItem.title = "Citites Weather"
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -27,14 +34,19 @@ class WeatherTableViewController: UITableViewController{
     
     @objc func goToWeatherSearchVC(){
         
-        var SearchObj = SearchCityVC()
+        let SearchObj = SearchCityVC()
         SearchObj.delegate = self
         self.navigationController?.pushViewController(SearchObj, animated: true)
         
     }
     
     @objc func goToSettingsTableVC(){
-        self.navigationController?.present(SettingsTableViewController(), animated: true, completion: nil)    //self.navigationController?.pushViewController(SettingsTableViewController(), animated: true)
+        
+        let settingObject = SettingsTableViewController()
+        
+      SettingsTableViewController.delegate = self
+        
+        self.navigationController?.pushViewController(settingObject, animated: true)   //self.navigationController?.pushViewController(SettingsTableViewController(), animated: true)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,13 +55,18 @@ class WeatherTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // will need to be changed
-        return DicOfWeather.count
+        return arrayOfCities.count
     }
+    
+  
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // new things need to be added
         var cell = TableViewCell()
         //cell.cityNameLabel.text = arrayOfClimates[indexPath.row]
+        cell.cityNameLabel.text = arrayOfCities[indexPath.row]
+        //var convertor = degreeConvertor(Unit: <#T##TempsUnit?#>)
+        cell.cityDegreeLabel.text = String(arrayOfDegrees[indexPath.row]) + "°"
         return cell
         
     }

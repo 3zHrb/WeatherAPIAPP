@@ -9,7 +9,7 @@
 import Foundation
 
 struct main: Codable{
-    var temp : Float
+    var temp : Double
 }
 
 struct WeatherModel: Codable{

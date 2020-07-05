@@ -11,6 +11,7 @@ import UIKit
 
 class Webservice{
     
+    static var delegate: SearchCityVC?
     
     static func getData(cityName: String, resultback: @escaping (WeatherModel?, Error?) -> ()?){
     
@@ -22,20 +23,20 @@ class Webservice{
 
             if let error = error {
 //                SearchCityVC().alertSetUp(reason: "Error Occured")
+                print("Error is: \(error)")
                 resultback(nil, error)
             }
             
             if let data = data {
-                print(data)
-                let jsonData = try? JSONDecoder().decode(WeatherModel.self, from: data) 
+            
+                
+                let jsonData = try? JSONDecoder().decode(WeatherModel.self, from: data)
+         
                 resultback(jsonData, nil)
                 print(jsonData)
-            }
-            
-            
-            
-            
-        }.resume()
+               
+                }
+            }.resume()
         
     }
     

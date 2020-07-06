@@ -28,10 +28,16 @@ class WeatherTableViewController: UITableViewController{
         
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        //self.tableView.reloadData()
+    override func viewDidAppear(_ animated: Bool) {
+        if arrayOfDegrees.isEmpty {
+            self.navigationItem.leftBarButtonItem?.isEnabled = false
+        }else {
+            self.navigationItem.leftBarButtonItem?.isEnabled = true
+        }
+
     }
-    
+        
+
     @objc func goToWeatherSearchVC(){
         
         let SearchObj = SearchCityVC()
@@ -65,7 +71,7 @@ class WeatherTableViewController: UITableViewController{
         var cell = TableViewCell()
         //cell.cityNameLabel.text = arrayOfClimates[indexPath.row]
         cell.cityNameLabel.text = arrayOfCities[indexPath.row]
-        //var convertor = degreeConvertor(Unit: <#T##TempsUnit?#>)
+        //var convertor = degreeConvertor(Unit: )
         cell.cityDegreeLabel.text = String(arrayOfDegrees[indexPath.row]) + "°"
         return cell
         

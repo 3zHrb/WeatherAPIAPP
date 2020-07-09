@@ -19,8 +19,6 @@ class SettingsTableViewController: UITableViewController {
     var cell: TableViewCell!
 //    var arrayOfTempsUnit: [TempsUnit.AllCases]!
     var arrayOfTempsUnit: [TempsUnit]!
-
-    var selectedDegreeFromCell: TempsUnit?
     
     static var delegate: WeatherTableViewController!
     
@@ -29,12 +27,10 @@ class SettingsTableViewController: UITableViewController {
     static var convertor: TempsUnit = .celsius {
         
         willSet{
-            print("new value is: \(newValue)")
              convertor = newValue
         }
         didSet{
             if convertor == oldValue {
-                print("old value is \(oldValue)")
                 return
             }else{
                 temUnitDidchanged(unit: convertor)
@@ -44,7 +40,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("From viewDidAppear ... The value of the TempsUnits is: \(SettingsTableViewController.convertor)")
+
     }
     
     
@@ -53,18 +49,16 @@ class SettingsTableViewController: UITableViewController {
         switch unit {
          
         case .celsius:
-            delegate.arrayOfDegrees = delegate.arrayOfDegrees.map({ (degree) -> Int in
-                print("switch from fahrenheit to celsius ")
-               
-                  return Int((Double((degree)) - 32) * 0.55)
+            delegate.arrayOfDegrees = delegate.arrayOfDegrees.map({ (degree) -> Double in
+                return (Double((degree)) - 32) * 0.555
             })
             delegate.tableView.reloadData()
             break
         case .fahrenheit:
-            delegate.arrayOfDegrees = delegate.arrayOfDegrees.map({ (degree) -> Int in
+            delegate.arrayOfDegrees = delegate.arrayOfDegrees.map({ (degree) -> Double in
                      print("switch from celsius to fahrenheit ")
             
-                return Int((Double(degree) * 1.8) + 32)
+                return (Double(degree) * 1.8) + 32
                  })
             delegate.tableView.reloadData()
             break

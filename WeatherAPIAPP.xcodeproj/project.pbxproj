@@ -18,6 +18,7 @@
 		0455B10424AAB04700429C3E /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455B10324AAB04700429C3E /* WeatherTableViewController.swift */; };
 		0455B10624AAB06500429C3E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455B10524AAB06500429C3E /* SettingsTableViewController.swift */; };
 		0455B10824AAB0DB00429C3E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455B10724AAB0DB00429C3E /* TableViewCell.swift */; };
+		0479150D24B744A400BE4F06 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0479150B24B744A400BE4F06 /* CoreDataModel.xcdatamodeld */; };
 		04E7BC6024B1786A00ACB45E /* JosefinSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04E7BC5F24B1786A00ACB45E /* JosefinSans-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		0455B10324AAB04700429C3E /* WeatherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
 		0455B10524AAB06500429C3E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		0455B10724AAB0DB00429C3E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		0479150C24B744A400BE4F06 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		04E7BC5F24B1786A00ACB45E /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 				04E7BC5F24B1786A00ACB45E /* JosefinSans-SemiBold.ttf */,
 				0455B0F124A9279400429C3E /* LaunchScreen.storyboard */,
 				0455B0F424A9279400429C3E /* Info.plist */,
+				0479150B24B744A400BE4F06 /* CoreDataModel.xcdatamodeld */,
 			);
 			path = WeatherAPIAPP;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				0455B0E724A9279200429C3E /* AppDelegate.swift in Sources */,
 				0455B10024A93DCC00429C3E /* Webservice.swift in Sources */,
 				0455B0E924A9279200429C3E /* SceneDelegate.swift in Sources */,
+				0479150D24B744A400BE4F06 /* CoreDataModel.xcdatamodeld in Sources */,
 				0455B10424AAB04700429C3E /* WeatherTableViewController.swift in Sources */,
 				0455B10224AA9BED00429C3E /* WeatherModel.swift in Sources */,
 				0455B10624AAB06500429C3E /* SettingsTableViewController.swift in Sources */,
@@ -390,6 +394,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0479150B24B744A400BE4F06 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0479150C24B744A400BE4F06 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 0479150C24B744A400BE4F06 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0455B0DB24A9279200429C3E /* Project object */;
 }

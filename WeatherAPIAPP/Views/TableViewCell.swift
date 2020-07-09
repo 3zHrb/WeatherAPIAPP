@@ -36,7 +36,7 @@ class TableViewCell: UITableViewCell{
         self.contentView.addSubview(cityDegreeLabel)
         
         cityNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        cityNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 40).isActive = true
+        //cityNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 40).isActive = true
         
         cityNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
                 

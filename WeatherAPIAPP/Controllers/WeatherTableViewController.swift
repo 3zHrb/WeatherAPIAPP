@@ -14,13 +14,14 @@ class WeatherTableViewController: UITableViewController{
     
     var cell: TableViewCell!
     var arrayOfCities = [String]()
-    var arrayOfDegrees = [Int]()
+    var arrayOfDegrees = [Double]()
     
     
     override func viewDidLoad() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToWeatherSearchVC))
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(goToSettingsTableVC))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Unit Conversion", style: .done, target: self, action: #selector(goToSettingsTableVC))
+        
         
         self.tableView.rowHeight = 100
         
@@ -70,10 +71,26 @@ class WeatherTableViewController: UITableViewController{
         // new things need to be added
         var cell = TableViewCell()
         //cell.cityNameLabel.text = arrayOfClimates[indexPath.row]
+        
+        
         cell.cityNameLabel.text = arrayOfCities[indexPath.row]
         //var convertor = degreeConvertor(Unit: )
-        cell.cityDegreeLabel.text = String(arrayOfDegrees[indexPath.row]) + "°"
+        cell.cityDegreeLabel.text = String(format: "%.0f", arrayOfDegrees[indexPath.row]) + "°"
         return cell
+        
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            self.arrayOfCities.remove(at: indexPath.row)
+            self.arrayOfDegrees.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .left)
+            
+        }
         
     }
     

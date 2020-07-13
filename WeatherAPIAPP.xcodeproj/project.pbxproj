@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0422215C24BB535100D5EB58 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0422215B24BB535100D5EB58 /* Launch Screen.storyboard */; };
 		0455B0E724A9279200429C3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455B0E624A9279200429C3E /* AppDelegate.swift */; };
 		0455B0E924A9279200429C3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455B0E824A9279200429C3E /* SceneDelegate.swift */; };
-		0455B0EE24A9279200429C3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0455B0EC24A9279200429C3E /* Main.storyboard */; };
 		0455B0F024A9279400429C3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0455B0EF24A9279400429C3E /* Assets.xcassets */; };
-		0455B0F324A9279400429C3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0455B0F124A9279400429C3E /* LaunchScreen.storyboard */; };
 		0455B0FB24A92A3400429C3E /* SearchCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455B0FA24A92A3400429C3E /* SearchCityVC.swift */; };
 		0455B10024A93DCC00429C3E /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455B0FF24A93DCC00429C3E /* Webservice.swift */; };
 		0455B10224AA9BED00429C3E /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455B10124AA9BED00429C3E /* WeatherModel.swift */; };
@@ -23,12 +22,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0422215B24BB535100D5EB58 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		0455B0E324A9279200429C3E /* WeatherAPIAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherAPIAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0455B0E624A9279200429C3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0455B0E824A9279200429C3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0455B0ED24A9279200429C3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0455B0EF24A9279400429C3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0455B0F224A9279400429C3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0455B0F424A9279400429C3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0455B0FA24A92A3400429C3E /* SearchCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityVC.swift; sourceTree = "<group>"; };
 		0455B0FF24A93DCC00429C3E /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
@@ -76,10 +74,9 @@
 				0455B0FF24A93DCC00429C3E /* Webservice.swift */,
 				0455B0E624A9279200429C3E /* AppDelegate.swift */,
 				0455B0E824A9279200429C3E /* SceneDelegate.swift */,
-				0455B0EC24A9279200429C3E /* Main.storyboard */,
 				0455B0EF24A9279400429C3E /* Assets.xcassets */,
 				04E7BC5F24B1786A00ACB45E /* JosefinSans-SemiBold.ttf */,
-				0455B0F124A9279400429C3E /* LaunchScreen.storyboard */,
+				0422215B24BB535100D5EB58 /* Launch Screen.storyboard */,
 				0455B0F424A9279400429C3E /* Info.plist */,
 				0479150B24B744A400BE4F06 /* CoreDataModel.xcdatamodeld */,
 			);
@@ -170,9 +167,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0455B0F324A9279400429C3E /* LaunchScreen.storyboard in Resources */,
+				0422215C24BB535100D5EB58 /* Launch Screen.storyboard in Resources */,
 				0455B0F024A9279400429C3E /* Assets.xcassets in Resources */,
-				0455B0EE24A9279200429C3E /* Main.storyboard in Resources */,
 				04E7BC6024B1786A00ACB45E /* JosefinSans-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,25 +193,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		0455B0EC24A9279200429C3E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0455B0ED24A9279200429C3E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0455B0F124A9279400429C3E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0455B0F224A9279400429C3E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0455B0F524A9279400429C3E /* Debug */ = {

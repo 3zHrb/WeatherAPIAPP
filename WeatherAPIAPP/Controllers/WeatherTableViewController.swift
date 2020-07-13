@@ -13,11 +13,17 @@ class WeatherTableViewController: UITableViewController{
     
     
     var cell: TableViewCell!
-    var arrayOfCities = [String]()
-    var arrayOfDegrees = [Double]()
+    
+    var arrayOfItems = [DataBase]()
+    
+//    var arrayOfCities = [String]()
+//    var arrayOfDegrees = [Double]()
     
     
     override func viewDidLoad() {
+      
+      
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToWeatherSearchVC))
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Unit Conversion", style: .done, target: self, action: #selector(goToSettingsTableVC))
@@ -27,14 +33,59 @@ class WeatherTableViewController: UITableViewController{
         
         self.navigationItem.title = "Citites Weather"
         
-    }
+//        if !arrayOfItems.isEmpty{
+//            print("Array is not Empty")
+//            self.navigationItem.leftBarButtonItem?.isEnabled = true
+//
+//            }else {
+//            print("array is empty")
+//            print("Now we are inisde the viewDidlOad before the iteration")
+        
+        do{
+            
+            if let check = try? context.fetch(DataBase.fetchRequest()){
+                
+                arrayOfItems = try! context.fetch(DataBase.fetchRequest())
+                
+                self.navigationItem.leftBarButtonItem?.isEnabled = true
+                
+                for i in arrayOfItems{
+                    print(i.cityName)
+                    print(i.cityDegree)
+                }
+                
+            }else {
+                self.navigationItem.leftBarButtonItem?.isEnabled = false
+            }
+            
+            
+        }catch{
+            print("Error could not fetch in viewDidload")
+        }
+        
+        self.navigationItem.leftBarButtonItem?.isEnabled = false
+        }
+        
+    
     
     override func viewDidAppear(_ animated: Bool) {
-        if arrayOfDegrees.isEmpty {
-            self.navigationItem.leftBarButtonItem?.isEnabled = false
-        }else {
+        
+        do{
+            arrayOfItems = try! context.fetch(DataBase.fetchRequest())
             self.navigationItem.leftBarButtonItem?.isEnabled = true
+        }catch{
+            print("error occued while fetch the data")
         }
+        
+//        if arrayOfItems == nil {
+//            self.navigationItem.leftBarButtonItem?.isEnabled = false
+//        }else {
+//            self.navigationItem.leftBarButtonItem?.isEnabled = true
+//
+//
+//        }
+        
+        self.tableView.reloadData()
 
     }
         
@@ -62,7 +113,7 @@ class WeatherTableViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // will need to be changed
-        return arrayOfCities.count
+        return arrayOfItems == nil ? 0 : arrayOfItems.count
     }
     
   
@@ -70,12 +121,10 @@ class WeatherTableViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // new things need to be added
         var cell = TableViewCell()
-        //cell.cityNameLabel.text = arrayOfClimates[indexPath.row]
+        cell.cityNameLabel.text = arrayOfItems[indexPath.row].cityName
         
-        
-        cell.cityNameLabel.text = arrayOfCities[indexPath.row]
         //var convertor = degreeConvertor(Unit: )
-        cell.cityDegreeLabel.text = String(format: "%.0f", arrayOfDegrees[indexPath.row]) + "°"
+        cell.cityDegreeLabel.text = String(format: "%.0f", arrayOfItems[indexPath.row].cityDegree) + "°"
         return cell
         
     }
@@ -85,13 +134,16 @@ class WeatherTableViewController: UITableViewController{
         
         if editingStyle == .delete {
             
-            self.arrayOfCities.remove(at: indexPath.row)
-            self.arrayOfDegrees.remove(at: indexPath.row)
+            var atRow = arrayOfItems[indexPath.row]
+
+            context.delete(atRow)
             
-            tableView.deleteRows(at: [indexPath], with: .left)
-            
+            appDelegate.saveContext()
+            arrayOfItems.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+
+//            context.delete(<#T##object: NSManagedObject##NSManagedObject#>)
         }
-        
     }
     
 }

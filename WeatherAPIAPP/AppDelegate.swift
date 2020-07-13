@@ -9,11 +9,14 @@
 import UIKit
 import CoreData
 
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -71,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: - Core Data Saving support
 
         func saveContext() {
-            let context = persistentContainer.viewContext
+//             context = persistentContainer.viewContext
             if context.hasChanges {
                 do {
                     try context.save()
@@ -89,7 +92,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-    
-
-    
-    

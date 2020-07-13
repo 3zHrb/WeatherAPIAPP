@@ -8,6 +8,10 @@
 
 import Foundation
 import UIKit
+import CoreData
+
+var appDelegate = UIApplication.shared.delegate as! AppDelegate
+var context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
 
 class SearchCityVC: UIViewController, UITextFieldDelegate{
     
@@ -102,14 +106,28 @@ class SearchCityVC: UIViewController, UITextFieldDelegate{
                 if let weatherData = weatherData {
                     
                     
-                    self.delegate.arrayOfCities.append(weatherData.name)
+//                    self.delegate.arrayOfCities.append(weatherData.name)
                     
                     let toCelsius = (weatherData.main.temp - 273.15)
                     
 //                    var degreeToString = String(format: "%.0f", toCelsius)
                     
-                    self.delegate.arrayOfDegrees.append(toCelsius)
+//                    self.delegate.arrayOfDegrees.append(toCelsius)
+                    
+                
+                    do{
+                    try context.save()
+                    }catch{
+                        print("error occured")
+                    }
+                    
                         DispatchQueue.main.async {
+                            var dataToInsert = DataBase(context: context)
+                            dataToInsert.cityDegree = toCelsius
+                            dataToInsert.cityName = self.searchTextField.text!
+
+                            appDelegate.saveContext()
+                            
                             self.searchTextField.text = ""
                                         
                             self.delegate.tableView.reloadData()

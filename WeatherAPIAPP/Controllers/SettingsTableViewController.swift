@@ -33,7 +33,7 @@ class SettingsTableViewController: UITableViewController {
             if convertor == oldValue {
                 return
             }else{
-                temUnitDidchanged(unit: convertor)
+//                temUnitDidchanged(unit: convertor)
             }
         }
         
@@ -44,27 +44,27 @@ class SettingsTableViewController: UITableViewController {
     }
     
     
-    static func temUnitDidchanged(unit: TempsUnit){
-        
-        switch unit {
-         
-        case .celsius:
-            delegate.arrayOfDegrees = delegate.arrayOfDegrees.map({ (degree) -> Double in
-                return (Double((degree)) - 32) * 0.555
-            })
-            delegate.tableView.reloadData()
-            break
-        case .fahrenheit:
-            delegate.arrayOfDegrees = delegate.arrayOfDegrees.map({ (degree) -> Double in
-                     print("switch from celsius to fahrenheit ")
-            
-                return (Double(degree) * 1.8) + 32
-                 })
-            delegate.tableView.reloadData()
-            break
-        }
-
-    }
+//    static func temUnitDidchanged(unit: TempsUnit){
+//
+//        switch unit {
+//
+//        case .celsius:
+//            delegate.arrayOfDegrees = delegate.arrayOfDegrees.map({ (degree) -> Double in
+//                return (Double((degree)) - 32) * 0.555
+//            })
+//            delegate.tableView.reloadData()
+//            break
+//        case .fahrenheit:
+//            delegate.arrayOfDegrees = delegate.arrayOfDegrees.map({ (degree) -> Double in
+//                     print("switch from celsius to fahrenheit ")
+//
+//                return (Double(degree) * 1.8) + 32
+//                 })
+//            delegate.tableView.reloadData()
+//            break
+//        }
+//
+//    }
     
     override func viewDidLoad() {
     
@@ -109,7 +109,7 @@ class SettingsTableViewController: UITableViewController {
         var UnitChanged = selectedCell?.cityNameLabel.text
         
         SettingsTableViewController.convertor = TempsUnit(rawValue: UnitChanged!)!
-        print("degree cganged to \(SettingsTableViewController.convertor) ")
+//        print("degree cganged to \(SettingsTableViewController.convertor) ")
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
     }
     

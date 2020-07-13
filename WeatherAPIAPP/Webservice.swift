@@ -18,7 +18,7 @@ class Webservice{
         var trimmer = cityName.replacingOccurrences(of: " ", with: "+")
         
         
-        print("the value of the trimmer is: \(trimmer)")
+       
         let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=\(trimmer)&appid=eac487641a5f879d83763eae5ced0905")
         
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -36,7 +36,7 @@ class Webservice{
                 let jsonData = try? JSONDecoder().decode(WeatherModel.self, from: data)
          
                 resultback(jsonData, nil)
-                print(jsonData)
+              
                
                 }
             }.resume()

@@ -15,6 +15,7 @@ class WeatherTableViewController: UITableViewController{
     var cell: TableViewCell!
     
     var arrayOfItems = [DataBase]()
+    var arrayOfDegrees = [Double]()
     
 //    var arrayOfCities = [String]()
 //    var arrayOfDegrees = [Double]()
@@ -50,8 +51,7 @@ class WeatherTableViewController: UITableViewController{
                 self.navigationItem.leftBarButtonItem?.isEnabled = true
                 
                 for i in arrayOfItems{
-                    print(i.cityName)
-                    print(i.cityDegree)
+                    arrayOfDegrees.append(i.cityDegree)
                 }
                 
             }else {
@@ -124,7 +124,7 @@ class WeatherTableViewController: UITableViewController{
         cell.cityNameLabel.text = arrayOfItems[indexPath.row].cityName
         
         //var convertor = degreeConvertor(Unit: )
-        cell.cityDegreeLabel.text = String(format: "%.0f", arrayOfItems[indexPath.row].cityDegree) + "°"
+        cell.cityDegreeLabel.text = String(format: "%.0f", arrayOfDegrees[indexPath.row]) + "°"
         return cell
         
     }

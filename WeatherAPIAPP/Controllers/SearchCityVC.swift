@@ -126,6 +126,8 @@ class SearchCityVC: UIViewController, UITextFieldDelegate{
                             dataToInsert.cityDegree = toCelsius
                             dataToInsert.cityName = self.searchTextField.text!
 
+                            self.delegate.arrayOfDegrees.append(toCelsius)
+                            
                             appDelegate.saveContext()
                             
                             self.searchTextField.text = ""

@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     window = UIWindow(windowScene: windowScene)
                     window?.rootViewController = UINavigationController(rootViewController: WeatherTableViewController())
                       window?.overrideUserInterfaceStyle = .dark
+        UINavigationBar.appearance().tintColor = UIColor(displayP3Red: 51, green: 153, blue: 255, alpha: 1)
                     window?.makeKeyAndVisible()
                       
                       

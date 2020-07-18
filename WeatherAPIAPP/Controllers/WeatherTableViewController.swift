@@ -27,7 +27,7 @@ class WeatherTableViewController: UITableViewController{
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToWeatherSearchVC))
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Unit Conversion", style: .done, target: self, action: #selector(goToSettingsTableVC))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Units", style: .done, target: self, action: #selector(goToSettingsTableVC))
         
         
         self.tableView.rowHeight = 100
@@ -124,7 +124,11 @@ class WeatherTableViewController: UITableViewController{
         cell.cityNameLabel.text = arrayOfItems[indexPath.row].cityName
         
         //var convertor = degreeConvertor(Unit: )
-        cell.cityDegreeLabel.text = String(format: "%.0f", arrayOfDegrees[indexPath.row]) + "°"
+//        cell.cityDegreeLabel.text = String(format: "%.0f", arrayOfDegrees[indexPath.row]) + "°"
+//        return cell
+        
+        cell.cityDegreeLabel.text = arrayOfDegrees[indexPath.row].twoDecimalString
+        
         return cell
         
     }
@@ -146,4 +150,13 @@ class WeatherTableViewController: UITableViewController{
         }
     }
     
+}
+
+
+extension Double {
+    
+    var twoDecimalString: String {
+        
+        return String(format: "%.0f", self) + "°"
+    }
 }

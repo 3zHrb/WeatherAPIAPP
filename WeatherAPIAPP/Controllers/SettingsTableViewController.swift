@@ -22,7 +22,7 @@ class SettingsTableViewController: UITableViewController {
     
     static var delegate: WeatherTableViewController!
     
-    
+     var user = UserDefaults.standard
     
     static var convertor: TempsUnit = .celsius {
         
@@ -39,8 +39,31 @@ class SettingsTableViewController: UITableViewController {
         
     }
     
+ 
+    
     override func viewDidAppear(_ animated: Bool) {
-
+        if user.string(forKey: "savedUnit") == nil {
+                 user.set("celsius", forKey: "savedUnit")
+             }else {
+                 var myCells = tableView.visibleCells as! [TableViewCell]
+                 var theCell = myCells.map { (cell) -> TableViewCell? in
+                     if cell.cityNameLabel.text == user.string(forKey: "savedUnit"){
+                         return cell
+                     }else{
+                         return nil
+                     }
+                 }
+                 for i in 0..<theCell.count{
+                     if (theCell[i] != nil) {
+                         tableView.cellForRow(at: [0, i])?.accessoryType = .checkmark
+                     }
+                 }
+                 }
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        user.set(SettingsTableViewController.convertor.rawValue, forKey: "savedUnit")
     }
     
     
@@ -57,7 +80,7 @@ class SettingsTableViewController: UITableViewController {
             break
         case .fahrenheit:
             delegate.arrayOfDegrees = delegate.arrayOfDegrees.map({ (degree) -> Double in
-                     print("switch from celsius to fahrenheit ")
+                    
 
                 return (Double(degree) * 1.8) + 32
                  })
@@ -76,6 +99,9 @@ class SettingsTableViewController: UITableViewController {
         self.tableView.rowHeight = 100
         
         self.navigationItem.title = "Units"
+        
+       
+        
         
 //        self.tableView.translatesAutoresizingMaskIntoConstraints = false
 //        self.tableView.bottomAnchor.constraint(equalTo: self.cell.bottomAnchor, constant: 0).isActive = true
@@ -96,17 +122,29 @@ class SettingsTableViewController: UITableViewController {
         
 //        self.tableView.translatesAutoresizingMaskIntoConstraints = false
 //            self.tableView.bottomAnchor.constraint(equalTo: self.cell.bottomAnchor, constant: 0).isActive = true
-        
-        
-      
-        
+
         cell.cityNameLabel.text = arrayOfTempsUnit[indexPath.row].rawValue
         cell.cityDegreeLabel.isHidden = true
+        
+        var selectedCell = user.string(forKey: "defaultCell") as! String
+        
+        if cell.cityNameLabel.text == selectedCell{
+        
+             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+           
+        
+        }
+     
+        
         return cell
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.visibleCells.map { cell in
+            cell.accessoryType = .none
+        }
         
         var selectedCell = tableView.cellForRow(at: indexPath) as? TableViewCell
         

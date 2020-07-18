@@ -45,19 +45,16 @@ class SettingsTableViewController: UITableViewController {
         if user.string(forKey: "savedUnit") == nil {
                  user.set("celsius", forKey: "savedUnit")
              }else {
+            var i = 0
                  var myCells = tableView.visibleCells as! [TableViewCell]
-                 var theCell = myCells.map { (cell) -> TableViewCell? in
+                 var theCell = myCells.map { cell in
                      if cell.cityNameLabel.text == user.string(forKey: "savedUnit"){
-                         return cell
-                     }else{
-                         return nil
-                     }
+                        tableView.cellForRow(at: [0, i])?.accessoryType = .checkmark
+                    }
+                    
+                    i = i + 1
                  }
-                 for i in 0..<theCell.count{
-                     if (theCell[i] != nil) {
-                         tableView.cellForRow(at: [0, i])?.accessoryType = .checkmark
-                     }
-                 }
+    
                  }
     }
     
